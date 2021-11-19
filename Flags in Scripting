@@ -7,3 +7,6 @@ Flags
 5) -b : to check file exists or not and its block special file or not
 6) -c : to check file exists or not and its character special file or not
 7) -s : to check file empty or not
+8) -eq : is equal to
+9) -lt : less than
+10) -gt : greater than
