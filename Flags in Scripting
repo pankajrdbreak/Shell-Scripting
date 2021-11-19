@@ -10,3 +10,5 @@ Flags
 8) -eq : is equal to
 9) -lt : less than
 10) -gt : greater than
+11) -a : AND operator &&
+12) -o : OR operator ||
