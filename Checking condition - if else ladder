@@ -17,3 +17,4 @@ fi
 
 # -w  :- to check file is writable or not
 # -e  :- to check file is exist or not
+# -e with echo : to interprete that \c is used to keep the cursor on same line otherwise it will print \c as it is
