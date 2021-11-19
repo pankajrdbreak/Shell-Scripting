@@ -1,0 +1,14 @@
+#! /bin/bash
+while read p
+do
+        echo $p
+done < condi.sh
+
+
+#Using cat command
+
+#! /bin/bash
+cat while.sh | while read p
+do
+        echo $p
+done
