@@ -12,3 +12,12 @@ cat while.sh | while read p
 do
         echo $p
 done
+
+
+#Using IFS - Internal Field Seperator
+
+#! /bin/bash
+while IFS=  read p
+do
+        echo $p
+done < /etc/hosts
