@@ -1,0 +1,19 @@
+#! /bin/bash
+echo -e "Enter the file name : \c"
+read file_name
+if [ -e $file_name ]
+then
+        if [ -w $file_name ]
+        then
+                echo "Type some text ctrl+d to exit"
+                cat >> $file_name
+        else
+                echo "$file_name is nor writable"
+        fi
+else
+        echo "$file_name is not exist"
+fi
+
+
+# -w  :- to check file is writable or not
+# -e  :- to check file is exist or not
