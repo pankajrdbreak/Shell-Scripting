@@ -1,0 +1,21 @@
+#! /bin/bash
+echo "Enter the age \c"
+read age
+if [ $age -gt 18 -a $age -lt 26 ]
+then
+        echo "Valid age"
+else
+        echo "Invalid age"
+fi
+
+
+
+#! /bin/bash
+echo "Enter the age \c"
+read age
+if [ $age -gt 18 ] || [ $age -lt 26 ]
+then
+        echo "Valid age"
+else
+        echo "Invalid age"
+fi
