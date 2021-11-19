@@ -1,0 +1,9 @@
+Flags 
+
+1) -w : to check file is writable
+2) -d : to check directory exists or not
+3) -e : to check file exists or not
+4) -f : to check file exists or not and its regular file or not
+5) -b : to check file exists or not and its block special file or not
+6) -c : to check file exists or not and its character special file or not
+7) -s : to check file empty or not
