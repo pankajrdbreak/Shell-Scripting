@@ -7,3 +7,16 @@ then
 else
         echo "Invalid age"
 fi
+
+
+# Or you can use -a for AND operator
+
+#! /bin/bash
+echo -e "Enter the age \c"
+read age
+if [ $age -gt 18 -a $age -lt 26 ]
+then
+        echo "Valid age"
+else
+        echo "Invalid age"
+fi
