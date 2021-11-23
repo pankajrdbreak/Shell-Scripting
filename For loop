@@ -34,6 +34,15 @@ do
         $command
 done
 
+#To get items in particular directory
+#! /bin/bash
+for item in *
+do
+        if [ -d $item ]
+        then
+                echo $item
+        fi
+done
 
 
 #To check bash version 
