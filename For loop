@@ -25,6 +25,15 @@ do
         echo $i
 done
 
+#To execute command in for loop 
+
+#! /bin/bash
+for command in ls pwd date df
+do
+        echo "*********$command*********"
+        $command
+done
+
 
 
 #To check bash version 
