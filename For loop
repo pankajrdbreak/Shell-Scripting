@@ -35,6 +35,9 @@ do
 done
 
 #To get items in particular directory
+# -d to get directories
+# -f to get files
+
 #! /bin/bash
 for item in *
 do
