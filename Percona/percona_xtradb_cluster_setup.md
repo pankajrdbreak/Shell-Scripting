@@ -199,3 +199,4 @@ mysql> show status like '%wsrep%';
 +----------------------------------+-------------------------------------------+
 75 rows in set (0.01 sec)
 ```
+#### Thats it our first node is ready and now we can add more nodes to join the cluster
