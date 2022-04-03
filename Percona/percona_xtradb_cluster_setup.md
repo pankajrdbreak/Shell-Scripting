@@ -199,7 +199,7 @@ mysql> show status like '%wsrep%';
 +----------------------------------+-------------------------------------------+
 75 rows in set (0.01 sec)
 ```
-####Note : 
+#### Note : 
 1) If firewall is enabled we have to allow some ports on all the nodes 
 ```
 systemctl status ufw
@@ -308,4 +308,17 @@ innodb_autoinc_lock_mode=2
 ```
 systemctl start mysql
 ```
-8) 
+8) Now you can see the logs if you want to check
+9) Also on first node you can repeat 9th step and see wsrep_cluster_size is 2 now , it means another node is added to the cluster
+10) Now to see whether actuall replication is hapening or not you can ceate db,table and insert data into it from any node and both the node should be synced and replicate that data.
+```
+
+###### Like same we have to add 3rd node to the cluster just we have to add ip in my.cnf of all nodes and have to change below 2 parameters on 3rd node
+```
+wsrep_node_name=knode3
+wsrep_node_address=192.168.246.131
+```
+
+
+# Thanks for reading..!
+
