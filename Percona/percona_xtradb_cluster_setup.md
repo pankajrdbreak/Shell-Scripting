@@ -199,4 +199,113 @@ mysql> show status like '%wsrep%';
 +----------------------------------+-------------------------------------------+
 75 rows in set (0.01 sec)
 ```
-#### Thats it our first node is ready and now we can add more nodes to join the cluster
+####Note : 
+1) If firewall is enabled we have to allow some ports on all the nodes 
+```
+systemctl status ufw
+ufw allow 4567/tcp
+ufw allow 4567/udp
+ufw allow 4444/tcp
+systemctl restart ufw
+```
+2) Also cross check the uuid on all the nodes and make sure its same like 1st node if not then please edit the file given below and change the uuid
+```
+vim /var/lib/mysql/grastate.dat
+```
+```
+# GALERA saved state
+version: 2.1
+uuid:    bc11ec2a-b31e-11ec-82b2-671aeae5b84f
+seqno:   -1
+safe_to_bootstrap: 0
+```
+
+##### Thats it our first node is ready and now we can add more nodes to join the cluster
+
+
+
+#### Lets start on knode2 (Node 2)
+
+##### Note : Do the all steps in super user mode (sudo su)
+
+1) Add and install percona repository
+```
+wget https://repo.percona.com/apt/percona-release_latest.bionic_all.deb
+
+dpkg -i percona-release_latest.bionic_all.deb
+```
+Here i have selected percona-release_latest.bionic_all.deb from https://repo.percona.com/apt/
+
+2) Update the system
+```
+apt-get update
+```
+3) Now we will install percona-xtradb-cluster with mysql 5.7 version
+```
+apt-get install -y percona-xtradb-cluster-57
+```
+4) Now stop the mysql service
+```
+systemctl stop mysql
+```
+5) Now configuration part comes in. We have to edit my.cnf file and do some configuration
+```
+vim /etc/mysql/my.cnf
+```
+Add the below code to my.cnf file
+```
+[mysqld]
+wsrep_provider=/usr/lib/libgalera_smm.so
+wsrep_cluster_name=democluster
+wsrep_cluster_address=gcomm://192.168.246.129,192.168.246.130
+wsrep_node_name=knode2
+wsrep_node_address=192.168.246.130
+wsrep_sst_method=xtrabackup-v2
+wsrep_sst_auth=pankaj:pankaj123
+pxc_strict_mode=ENFORCING
+binlog_format=ROW
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
+```
+Finally the file will lokk like below
+```
+#
+# The Percona XtraDB Cluster 5.7 configuration file.
+#
+#
+# * IMPORTANT: Additional settings that can override those from this file!
+#   The files must end with '.cnf', otherwise they'll be ignored.
+#   Please make any edits and changes to the appropriate sectional files
+#   included below.
+#
+!includedir /etc/mysql/conf.d/
+!includedir /etc/mysql/percona-xtradb-cluster.conf.d/
+[mysqld]
+wsrep_provider=/usr/lib/libgalera_smm.so
+wsrep_cluster_name=democluster
+wsrep_cluster_address=gcomm://192.168.246.129,192.168.246.130
+wsrep_node_name=knode2
+wsrep_node_address=192.168.246.130
+wsrep_sst_method=xtrabackup-v2
+wsrep_sst_auth=pankaj:pankaj123
+pxc_strict_mode=ENFORCING
+binlog_format=ROW
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
+~                                                                                                                                                                                     
+~                                                                                                                                                                                     
+~                                                                                                                                                                                     
+~                                                                                                                                                                                     
+~                                                                                                                                                                                     
+~                                                                                                                                                                                     
+~                                                                                                                                                                                     
+~                                                                                                                                                                                     
+~                                                                                                                                                                                                                                                                                                                                                                    
+"/etc/mysql/my.cnf" 23L, 744C  
+```
+6) Save and close the file
+7) Now we can start the service
+```
+systemctl start mysql
+```
+8) 
