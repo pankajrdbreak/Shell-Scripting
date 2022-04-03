@@ -4,16 +4,14 @@ Percona cluster is used for mysql replication. In this tutorial we will se how t
 
 # Prerequisite 
 1) Node 1
---> hostname : knode
-</br>--> ip       : 
+--> hostname : knode         --> ip : 
 
 2) Node 2
---> hostname : knode2
---> ip       : 
+--> hostname : knode2        --> ip : 
 
 3) Node 3
---> hostname : knode2
---> ip       :
+--> hostname : knode3        --> ip :
+
 
 Note : Don't install mysql or any other package start with fresh machines
 
