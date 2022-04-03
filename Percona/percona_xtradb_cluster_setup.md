@@ -2,7 +2,7 @@
 
 Percona cluster is used for mysql replication. In this tutorial we will se how to install and configure percona cluster replication in 3 nodes
 
-# Prerequisite 
+## Prerequisite 
 1) Node 1 (Ubuntu 20)
 --> hostname : knode         --> ip : 192.168.246.129
 
@@ -16,7 +16,7 @@ Percona cluster is used for mysql replication. In this tutorial we will se how t
 Note : Don't install mysql or any other package start with fresh machines
 
 
-# Procedure
+## Procedure
 
 #### Lets start on knode (Node 1)
 
