@@ -7,7 +7,7 @@ Percona cluster is used for mysql replication. In this tutorial we will se how t
 --> hostname : knode         --> ip : 192.168.246.129
 
 2) Node 2 (Ubuntu 20)
---> hostname : knode2        --> ip : 
+--> hostname : knode2        --> ip : 192.168.246.130
 
 3) Node 3 (Ubuntu 20)
 --> hostname : knode3        --> ip :
@@ -212,13 +212,13 @@ systemctl restart ufw
 ```
 vim /var/lib/mysql/grastate.dat
 ```
-```
 # GALERA saved state
 version: 2.1
 uuid:    bc11ec2a-b31e-11ec-82b2-671aeae5b84f
 seqno:   -1
 safe_to_bootstrap: 0
 ```
+3) If you are on aws ec2 instances then add all traffic rule in security group
 
 ##### Thats it our first node is ready and now we can add more nodes to join the cluster
 
