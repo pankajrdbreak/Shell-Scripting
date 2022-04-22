@@ -212,13 +212,15 @@ systemctl restart ufw
 ```
 vim /var/lib/mysql/grastate.dat
 ```
+```
 # GALERA saved state
 version: 2.1
 uuid:    bc11ec2a-b31e-11ec-82b2-671aeae5b84f
 seqno:   -1
 safe_to_bootstrap: 0
 ```
-3) If you are on aws ec2 instances then add all traffic rule in security group
+3) If you are on aws ec2 instances then add all traffic rule in security group.
+
 
 ##### Thats it our first node is ready and now we can add more nodes to join the cluster
 
