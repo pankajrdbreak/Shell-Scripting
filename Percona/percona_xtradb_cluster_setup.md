@@ -320,7 +320,7 @@ systemctl start mysql
 wsrep_node_name=knode3
 wsrep_node_address=192.168.246.131
 ```
-
+Also add other nodes IP address in my.cnf of 1st node. There is no master-slave concept in percona replication. Any one node can write and the data will replicated in other nodes.
 
 # Thanks for reading..!
 
